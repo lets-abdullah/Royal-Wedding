@@ -72,7 +72,8 @@ export default function App() {
         loop
         preload="auto"
         id="bg-music"
-        src="/audio.mp3" // Attached song file placed in public/audio.mp3
+        src="audio.mp3" // Attached song file placed in public/audio.mp3
+
       />
 
       <InvitationIntro isOpen={isOpened} onOpenClick={handleOpenClick} onOpenComplete={handleOpenComplete} />
