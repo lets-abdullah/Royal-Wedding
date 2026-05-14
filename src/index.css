@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel+Decorative:wght@400;700;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-maroon-dark: #3b0000;
+  --color-maroon-light: #5b0a0a;
+  --color-gold: #d4af37;
+  --color-gold-light: #f1d592;
+  --color-cream: #fdfcf0;
+  --color-ivory: #fffef2;
+  
+  --font-serif: "Cormorant Garamond", "EB Garamond", serif;
+  --font-display: "Playfair Display", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-decorative: "Cinzel Decorative", serif;
+  --font-body: "Lora", "EB Garamond", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-maroon-dark text-cream font-body antialiased selection:bg-gold selection:text-maroon-dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-gold;
+  }
+}
+
+@layer components {
+  .gold-glow {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.2);
+  }
+  
+  .glass-card {
+    @apply bg-black/20 backdrop-blur-sm border border-gold/20 shadow-xl;
+  }
+
+  .premium-divider {
+    @apply w-full flex items-center justify-center gap-4;
+  }
+
+  .premium-divider::before,
+  .premium-divider::after {
+    content: "";
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-maroon-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gold/30 hover:bg-gold/50 rounded-full transition-colors;
+}
+
+/* Decorative background pattern */
+.bg-mandala {
+  background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+  background-repeat: repeat;
+}
+
+.bg-ornament {
+  background-image: radial-gradient(circle at 100% 100%, transparent 95%, #d4af37 100%),
+                    radial-gradient(circle at 0% 100%, transparent 95%, #d4af37 100%),
+                    radial-gradient(circle at 100% 0%, transparent 95%, #d4af37 100%),
+                    radial-gradient(circle at 0% 0%, transparent 95%, #d4af37 100%);
+  background-size: 20px 20px;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
